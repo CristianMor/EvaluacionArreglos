@@ -8,7 +8,7 @@ _Para ejecutar el proyecto necesita tener instalado algun IDE de java sea en su 
 Ejemplo
 ```
 ### Instalacion :construction:
-_Para compilar y ejectar el programa desde la terminal siga estos pasos_
+_Para compilar y ejecutar el programa desde la terminal siga estos pasos_
 _Habra la terminal y situese en la carpeta del proyecto_
 ```
 cd ~/EvaluacionArreglos

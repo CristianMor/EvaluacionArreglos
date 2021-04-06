@@ -3,6 +3,8 @@ package com.evaluacionarreglos;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -12,6 +14,8 @@ class VentanaMenu extends JFrame{
     private JButton btnImprimir;
     private JButton btnBuscar;
     private JButton btnFin;
+    private JTextArea textArea;
+    private JScrollPane scrollPane;
     public static int in= 0;
 
     public Articulo objArti[] = new Articulo[3];
@@ -22,10 +26,18 @@ class VentanaMenu extends JFrame{
         setResizable(false);
         setTitle("Menu");
         
+        textArea= new JTextArea("Infor");
+        textArea.setBounds(160, 10, 300, 130);
+        textArea.setEditable(false);
+        textArea.setLineWrap(true);
+        textArea.setVisible(true);
+
+                        
         addBotones();
         accionesBtn();
         initArticulos();
 
+        add(textArea);
     }
 
     public void setIn(int indice){
@@ -103,7 +115,7 @@ class VentanaMenu extends JFrame{
 
     public static void main(String args[]){
         VentanaMenu Ventana = new VentanaMenu();
-        Ventana.setBounds(50, 50, 200, 200);
+        Ventana.setBounds(50, 50, 500, 200);
         Ventana.setVisible(true);
     }
 }
