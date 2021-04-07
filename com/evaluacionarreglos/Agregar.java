@@ -1,6 +1,9 @@
 package com.evaluacionarreglos;
 
+
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JDialog;
 import javax.swing.JButton;
@@ -84,6 +87,26 @@ class Agregar extends JDialog{
         add(btnGuardar);
 
         accionBtn(arrObj);
+        capturaTeclado();
+    }
+
+    public void capturaTeclado(){
+        precioBox.addKeyListener(new KeyListener(){
+            public void keyTyped(KeyEvent e){
+                char caracter = e.getKeyChar();
+                
+                if((caracter < '0') || (caracter > '9') && (caracter != '\b')){
+                    e.consume();
+                }
+            }
+            
+            public void keyReleased(KeyEvent e){
+            }
+
+            public void keyPressed(KeyEvent e){
+
+            }
+        });
     }
 
     public void accionBtn(Articulo[] arr){

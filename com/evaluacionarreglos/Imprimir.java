@@ -42,7 +42,7 @@ public class Imprimir extends JDialog implements ActionListener{
         int i=0;
         textArea.append("ID     | NOMBRE         | MODELO         | PRECIO       | EXISTENCIA\n");
         while(i<indice){
-            textArea.append(arr[i].getId()+"   "+arr[i].getNombre()+"   "+arr[i].getModelo()+"   "+arr[i].getPrecio()+"   "+arr[i].getExistencia()+"\n");
+            textArea.append(arr[i].getId()+"   "+arr[i].getNombre()+"   "+arr[i].getModelo()+"   $"+arr[i].getPrecio()+"   "+arr[i].getExistencia()+"\n");
             i++;
         }
     }
