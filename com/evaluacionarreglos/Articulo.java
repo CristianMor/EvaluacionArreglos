@@ -5,14 +5,14 @@ public class Articulo{
     private int id;
     private String nombre;
     private String modelo;
-    private double precio;
+    private int precio;
     private int existencia;
 
     public Articulo(){
         this.id= 0;
         this.nombre= null;
         this.modelo= null;
-        this.precio= 0.0;
+        this.precio= 0;
         this.existencia= 0;
     }
 
@@ -40,11 +40,11 @@ public class Articulo{
         return this.modelo;
     }
 
-    public void setPrecio(double val){
+    public void setPrecio(int val){
         this.precio= val;
     }
 
-    public double getPrecio(){
+    public int getPrecio(){
         return this.precio;
     }
 

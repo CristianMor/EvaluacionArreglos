@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JDialog;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 class Agregar extends JDialog{
@@ -90,23 +91,34 @@ class Agregar extends JDialog{
         btnGuardar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                arr[auxIn].setId(auxIn);
-                arr[auxIn].setNombre(nombreBox.getText());
-                arr[auxIn].setModelo(modeloBox.getText());
-                arr[auxIn].setPrecio(Double.parseDouble(precioBox.getText()));
-                arr[auxIn].setExistencia(Integer.parseInt(existBox.getText()));
+                if(esAlgunoVacio(nombreBox, modeloBox, precioBox, existBox)){
+                    JOptionPane.showMessageDialog(null, "Por favor no deje ni un campo vacio.", "ERROR", JOptionPane.WARNING_MESSAGE);
+                    
+                }else{ 
+                    try{ 
+                        arr[auxIn].setId(auxIn);
+                        arr[auxIn].setNombre(nombreBox.getText());
+                        arr[auxIn].setModelo(modeloBox.getText());
+                        arr[auxIn].setPrecio(Integer.parseInt(precioBox.getText()));
+                        arr[auxIn].setExistencia(Integer.parseInt(existBox.getText()));
                 
-                System.out.println("Nombre: "+nombreBox.getText()+"\nModelo: "+modeloBox.getText()+"\nPrecio: "+precioBox.getText()+"\nExistencia: "+existBox.getText());
-
-                nombreBox.setText("");
-                modeloBox.setText("");
-                precioBox.setText("");
-                existBox.setText("");
-
-                auxIn +=1;
-                aux.setIn(auxIn);
-                System.out.println("Se setio in + 1 = "+auxIn);
-                txtId.setText("Id: "+String.valueOf(auxIn));
+                        System.out.println("Nombre: "+nombreBox.getText()+"\nModelo: "+modeloBox.getText()+"\nPrecio: "+precioBox.getText()+"\nExistencia: "+existBox.getText());
+                        auxIn +=1;
+                        aux.setIn(auxIn);
+                        System.out.println("Se setio in + 1= "+auxIn);
+                        txtId.setText("Id: "+String.valueOf(auxIn));
+                    }catch(ArrayIndexOutOfBoundsException err){
+                        System.out.println("Ocurrio un error de tipo: "+err.getMessage());
+                        JOptionPane.showMessageDialog(null, err.getMessage(), "ERROR", JOptionPane.WARNING_MESSAGE);
+                        btnGuardar.setEnabled(false);
+                    }finally{
+                        System.out.println("Quedo in en = "+auxIn);
+                    }
+                    nombreBox.setText("");
+                    modeloBox.setText("");
+                    precioBox.setText("");
+                    existBox.setText("");
+                }
             }
         });
 
@@ -121,4 +133,12 @@ class Agregar extends JDialog{
         });
     }
 
+    public boolean esAlgunoVacio(JTextField... textFields){
+        for(JTextField textField: textFields){
+            if(textField.getText().isEmpty()){
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -18,7 +18,7 @@ class VentanaMenu extends JFrame{
     private JScrollPane scrollPane;
     public static int in= 0;
 
-    public Articulo objArti[] = new Articulo[3];
+    public Articulo objArti[] = new Articulo[2];
         
     public VentanaMenu(){
         setLayout(null);
@@ -26,7 +26,7 @@ class VentanaMenu extends JFrame{
         setResizable(false);
         setTitle("Menu");
         
-        textArea= new JTextArea("Infor");
+        textArea= new JTextArea("Busqueda");
         textArea.setBounds(160, 10, 300, 130);
         textArea.setEditable(false);
         textArea.setLineWrap(true);
@@ -85,7 +85,7 @@ class VentanaMenu extends JFrame{
                     i++;
                 }
 
-                Imprimir formImprimir= new Imprimir(new VentanaMenu(), true);
+                Imprimir formImprimir= new Imprimir(new VentanaMenu(), true, objArti, in);
                 formImprimir.setVisible(true);
             }
         });
