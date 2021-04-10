@@ -36,7 +36,7 @@ class Agregar extends JDialog{
         System.out.println("El valor de in recibido es = "+auxIn);
 
         setLayout(null);
-        setBounds(200, 200, 410, 410);
+        setBounds(200, 200, 360, 280);
         setResizable(false);
         setTitle("Nuevo Articulo");
 
@@ -130,6 +130,8 @@ class Agregar extends JDialog{
                         aux.setIn(auxIn);
                         System.out.println("Se setio in + 1= "+auxIn);
                         txtId.setText("Id: "+String.valueOf(auxIn));
+
+                        JOptionPane.showMessageDialog(null, "Guardado con exito!", "Guardado", JOptionPane.INFORMATION_MESSAGE);
                     }catch(ArrayIndexOutOfBoundsException err){
                         System.out.println("Ocurrio un error de tipo: "+err.getMessage());
                         JOptionPane.showMessageDialog(null, err.getMessage(), "ERROR", JOptionPane.WARNING_MESSAGE);
@@ -141,6 +143,7 @@ class Agregar extends JDialog{
                     modeloBox.setText("");
                     precioBox.setText("");
                     existBox.setText("");
+                    
                 }
             }
         });
