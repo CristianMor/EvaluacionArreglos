@@ -52,7 +52,7 @@ public class Articulo{
         this.existencia= val;
     }
 
-    public double getExistencia(){
+    public int getExistencia(){
         return this.existencia;
     }
 }
