@@ -1,3 +1,7 @@
+/* Clase VentanaMenu o clase principal esta clase es la principal del programa en ella se encuentra el arreglo de tipo Articulo el UI de la pantalla es el siguente consta de 4 botones para ejecutar diferentes funciones y un textArea donde se mostrara el resultado al realizar una busqueda
+ * Nombre: Cristian Martin Moreno Rodriguez
+ * Fecha: 29/marzo/2021 */
+
 package com.evaluacionarreglos;
 
 import javax.swing.JFrame;
@@ -8,22 +12,27 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 class VentanaMenu extends JFrame{
-    
+
+    //Declaracion de componentes y atributos de la clase
     private JButton btnAgregar;
     private JButton btnImprimir;
     private JButton btnBuscar;
     private JButton btnFin;
     private JTextArea textArea;
+
+    //Se crea esta variable para poder ser modificada desde otra clase que hace referencia a esta clase
     public static int in= 0;
 
     public Articulo objArti[] = new Articulo[100];
         
     public VentanaMenu(){
+        //Propiedades para el JFrame
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
         setTitle("Menu");
         
+        //Se inicializan los componentes y inicializa el arreglo de tipo Articulo, se modifican algunas propiedades y se agregan al jframe
         textArea= new JTextArea();
         textArea.setBounds(160, 10, 300, 130);
         textArea.setEditable(false);
@@ -32,12 +41,14 @@ class VentanaMenu extends JFrame{
 
                         
         addBotones();
+        //Metodo donde se escucha alos botones por medio de actionlistener y se ejecutan los eventos
         accionesBtn();
         initArticulos();
 
         add(textArea);
     }
 
+    //Metodo set y get del atributo in
     public void setIn(int indice){
         this.in= indice;
     }
@@ -54,7 +65,6 @@ class VentanaMenu extends JFrame{
         btnFin= new JButton("Fin");
         
         btnAgregar.setBounds(50, 10, 100, 30);
-
         btnImprimir.setBounds(50, 45, 100, 30);
         btnBuscar.setBounds(50, 80, 100, 30);
         btnFin.setBounds(50, 115, 100, 30);
@@ -68,6 +78,7 @@ class VentanaMenu extends JFrame{
     public void accionesBtn(){
         btnAgregar.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
+                /*Se instancia e inicializa un objeto de la clase tipo Agregar y se mandan por parametros la referencia de la clase padre , modal como true y el arreglo de tipo Articulo*/
                 Agregar formAgregar = new Agregar(new VentanaMenu(), true, objArti);
                 formAgregar.setVisible(true);
                 System.out.println("Click Boton Agregar el valor de in es = "+in);
