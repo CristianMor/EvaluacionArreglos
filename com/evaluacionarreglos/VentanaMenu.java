@@ -4,7 +4,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
-import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -15,7 +14,6 @@ class VentanaMenu extends JFrame{
     private JButton btnBuscar;
     private JButton btnFin;
     private JTextArea textArea;
-    private JScrollPane scrollPane;
     public static int in= 0;
 
     public Articulo objArti[] = new Articulo[100];
@@ -80,7 +78,7 @@ class VentanaMenu extends JFrame{
             public void actionPerformed(ActionEvent e){
                 int i=0;
                 System.out.println("Click Boton Imprimir");
-                while(i<=in){
+                while(i<in){
                     System.out.println("Articulo: "+i+"\nId: "+objArti[i].getId()+"\nNombre: "+objArti[i].getNombre()+"\nModelo: "+objArti[i].getModelo()+"\nPrecio: "+objArti[i].getPrecio()+"\nExistencia: "+objArti[i].getExistencia());
                     i++;
                 }
@@ -114,6 +112,7 @@ class VentanaMenu extends JFrame{
                             int id= Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el id a buscar: ", "Buscar", JOptionPane.QUESTION_MESSAGE));
                             System.out.println("id: "+id);
                             int resultado= busquedaId(objArti, id);
+                            System.out.println("Variable Resultado es= "+resultado);
                             if(resultado >= 0){
                                 textArea.setText("");
                                 textArea.append("---Articulo encontrado---\nId: "+objArti[resultado].getId()+"\nNombre: "+objArti[resultado].getNombre()+"\nModelo: "+objArti[resultado].getModelo()+"\nPrecio: $"+objArti[resultado].getPrecio()+"\nExistencia: "+objArti[resultado].getExistencia());
@@ -146,10 +145,9 @@ class VentanaMenu extends JFrame{
     }
     
     public int busquedaNombre(Articulo A[], String X){
-        int izq=0;
-        int dere= A.length-1;
+        int dere= this.getIn();
 
-        for(int i=0; i<=dere; i++){
+        for(int i=0; i<dere; i++){
             if(A[i].getNombre().compareToIgnoreCase(X) == 0){
                 return i;
             }
@@ -159,7 +157,7 @@ class VentanaMenu extends JFrame{
 
     public int busquedaId(Articulo A[], int X){
         int izq=0;
-        int dere= A.length-1;
+        int dere= this.getIn()-1;
         while(izq <= dere){
             int medio= izq + (dere - izq) / 2;
             if(A[medio].getId() == X){

@@ -87,26 +87,29 @@ class Agregar extends JDialog{
         add(btnGuardar);
 
         accionBtn(arrObj);
-        capturaTeclado();
+        capturaTeclado(precioBox, existBox);
     }
 
-    public void capturaTeclado(){
-        precioBox.addKeyListener(new KeyListener(){
-            public void keyTyped(KeyEvent e){
-                char caracter = e.getKeyChar();
-                
-                if((caracter < '0') || (caracter > '9') && (caracter != '\b')){
-                    e.consume();
+    public void capturaTeclado(JTextField... jTextFields){ 
+        
+        for(JTextField jTextField: jTextFields){
+            jTextField.addKeyListener(new KeyListener(){
+                public void keyTyped(KeyEvent e){
+                    char caracter = e.getKeyChar();
+                    if((caracter < '0') || (caracter > '9') && (caracter != '\b')){
+                        e.consume();
+                    }
                 }
-            }
-            
-            public void keyReleased(KeyEvent e){
-            }
 
-            public void keyPressed(KeyEvent e){
+                public void keyReleased(KeyEvent e){
 
-            }
-        });
+                }
+
+                public void keyPressed(KeyEvent e){
+
+                }
+            });
+        }
     }
 
     public void accionBtn(Articulo[] arr){
