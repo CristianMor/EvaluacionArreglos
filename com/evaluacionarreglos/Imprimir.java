@@ -40,9 +40,8 @@ public class Imprimir extends JDialog implements ActionListener{
 
     public void resultado(Articulo[] arr, int indice){
         int i=0;
-        textArea.append("ID     | NOMBRE         | MODELO         | PRECIO       | EXISTENCIA\n");
         while(i<indice){
-            textArea.append(arr[i].getId()+"   "+arr[i].getNombre()+"   "+arr[i].getModelo()+"   $"+arr[i].getPrecio()+"   "+arr[i].getExistencia()+"\n");
+            textArea.append("---Articulo #"+(i+1)+"---\nID: "+arr[i].getId()+"   |-NOMBRE: "+arr[i].getNombre()+"   |-MODELO: "+arr[i].getModelo()+"   |-PRECIO: $"+arr[i].getPrecio()+"   |-EXISTENCIA: "+arr[i].getExistencia()+"\n------------------\n");
             i++;
         }
     }
