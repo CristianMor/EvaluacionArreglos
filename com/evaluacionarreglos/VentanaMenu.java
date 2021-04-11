@@ -80,7 +80,7 @@ class VentanaMenu extends JFrame{
             public void actionPerformed(ActionEvent e){
                 int i=0;
                 System.out.println("Click Boton Imprimir");
-                while(i<objArti.length){
+                while(i<=in){
                     System.out.println("Articulo: "+i+"\nId: "+objArti[i].getId()+"\nNombre: "+objArti[i].getNombre()+"\nModelo: "+objArti[i].getModelo()+"\nPrecio: "+objArti[i].getPrecio()+"\nExistencia: "+objArti[i].getExistencia());
                     i++;
                 }
@@ -101,6 +101,7 @@ class VentanaMenu extends JFrame{
                     switch(x){
                         case 1:
                             String nombre= JOptionPane.showInputDialog(null, "Ingrese nombre a buscar: ", "Buscar", JOptionPane.QUESTION_MESSAGE);
+                            System.out.println("Nombre: "+nombre);
                             int result= busquedaNombre(objArti, nombre);
                             if(result >= 0){
                                 textArea.setText(" ");
@@ -111,6 +112,7 @@ class VentanaMenu extends JFrame{
                             break;
                         case 0: 
                             int id= Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el id a buscar: ", "Buscar", JOptionPane.QUESTION_MESSAGE));
+                            System.out.println("id: "+id);
                             int resultado= busquedaId(objArti, id);
                             if(resultado >= 0){
                                 textArea.setText("");
