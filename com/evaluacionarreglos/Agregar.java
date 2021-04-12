@@ -1,3 +1,4 @@
+/* Clase Agregar que hereda de una clase llamada JDialog esta clase se mostrara por encima de su clase parent aqui se llenara o agregara un registro del arreglo de tipo Articulo */
 package com.evaluacionarreglos;
 
 

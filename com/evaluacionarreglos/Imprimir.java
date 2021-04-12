@@ -1,3 +1,4 @@
+/*Clase Imprimir esta clase hereda de una clase JDialog y implementa una interface ActionListener para las acciones de los botones esta clase recibira el arreglo de tipo Articulo y cuantos llevan agregados para poder asi mostrarlos por medio de un TextArea */
 package com.evaluacionarreglos;
 
 import java.awt.event.ActionListener;

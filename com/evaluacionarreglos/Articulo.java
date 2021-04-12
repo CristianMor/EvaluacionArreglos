@@ -1,3 +1,6 @@
+/* Clase Articulo que me servira para complatilla para crear un arreglo de Tipo Articulo esta clase contiene sus respectivos atributos y los get y set de estos, para asi poder ser llamados desde un objeto creado de este tipo
+ * Nombre: Cristian Martin Moreno Rodriguez
+ * Fecha: 1/abril/2021*/
 package com.evaluacionarreglos;
 
 public class Articulo{
